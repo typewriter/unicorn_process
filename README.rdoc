@@ -1,0 +1,58 @@
+= UnicornProcess
+
+unicorn_rails で起動しているプロセスの情報を取得するスクリプトです。
+
+unicorn_rails は，Rackアプリケーション用のHTTPサーバ Unicorn (http://unicorn.bogomips.org/) のうち，Railsアプリケーションに特化したものを指します。
+
+== 動作条件
+
+* /proc ファイルシステムが利用できる
+* unicorn_rails によってRailsアプリケーションが動作している
+* netstatが利用できる
+
+== 取得できる情報
+
+* プロセスID (pid)
+* 作業ディレクトリ (working_directory)
+* ポート (port)
+* ワーカー数 (worker)
+* "--config-file(-c)" オプションで指定した設定ファイルのパス (config_path)
+* "--path" オプションで指定したパス (path)
+* Rubyインタプリタのバージョン (ruby_version)
+
+== How to use
+
+詳しくは、 doc/UnicornProcess.html をご覧ください。
+
+=== 特定の unicorn_rails の情報を取得する
+
+ require './unicorn_process.rb'
+ process = UnicornProcess.new(17793) # PID 17793の情報を取得する
+ puts process.working_directory #=> /home/typewriter/lib/app_manager
+ puts process.port.inspect      #=> [{:port=>49953, :type=>"tcp"}]
+ puts process.worker            #=> 1
+   
+=== すべての unicorn_rails の情報を取得する
+
+ require './unicorn_process.rb'
+ processes = UnicornProcess.processes
+ processes.each { |process|
+   puts "PID: #{process.pid}"
+   puts "  directory: #{process.working_directory}"
+   puts "       port: #{process.port.inspect}"
+   puts "     worker: #{process.worker}"
+ }
+
+ PID: 17793
+   directory: /home/typewriter/lib/app_manager
+        port: [{:port=>49953, :type=>"tcp"}]
+      worker: 1
+ PID: 22904
+   directory: /home/typewriter/lib/sample_app
+        port: [{:port=>49950, :type=>"tcp"}, {:port=>49959, :type=>"tcp"}]
+      worker: 4
+
+== License
+
+ライセンスは MIT License です。ライセンス文は LICENSE を参照してください。
+
