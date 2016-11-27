@@ -33,7 +33,7 @@ class UnicornProcess
 
   # キャッシュをクリアします。
   def self.clear
-    @@netstat = `netstat -anp`
+    @@netstat = `netstat -anp 2>/dev/null`
     @@psaxl = `ps axl`
     @@rubies = {}
   end
@@ -44,7 +44,7 @@ class UnicornProcess
 
     ps_result = `ps aux -ww`
     ps_result.each_line { |e|
-      if e =~ /^.+?\s+(\d+)\s+.+\s+unicorn_rails master/
+      if e =~ /^.+?\s+(\d+)\s+.+\s+unicorn\w* master/
         process_id = $1.to_i
         unicorn_processes << UnicornProcess.new(process_id) if e !~ /\(old\)/
       end
@@ -65,7 +65,7 @@ class UnicornProcess
     # まあ、コンフィグを解釈するとかめんどいわけで。
     ports = []
 
-    netstat_result = (CACHED_RESULT ? (defined?(@@netstat) ? @@netstat : @@netstat = `netstat -anp`) : `netstat -anp`)
+    netstat_result = (CACHED_RESULT ? (defined?(@@netstat) ? @@netstat : @@netstat = `netstat -anp 2>/dev/null`) : `netstat -anp 2>/dev/null`)
     childs = child_pids
     netstat_result.each_line { |e|
       if e =~ /\s+#{@pid}\// || (!childs.empty? && e =~ /\s+(?:#{childs.join('|')})\//)
@@ -98,7 +98,7 @@ class UnicornProcess
 
     ps_result = (CACHED_RESULT ? (defined?(@@psaxl) ? @@psaxl : @@psaxl = `ps axl -ww`) : `ps axl -ww`)
     ps_result.each_line { |e|
-      if e =~ /^\d+\s+\d+\s+\d+\s+#{@pid}\s+.+\s+unicorn_rails worker/
+      if e =~ /^\d+\s+\d+\s+\d+\s+#{@pid}\s+.+\s+unicorn\w* worker/
         workers += 1
       end
     }
@@ -160,7 +160,7 @@ private
     pids = []
     ps_result = (CACHED_RESULT ? (defined?(@@psaxl) ? @@psaxl : @@psaxl = `ps axl -ww`) : `ps axl -ww`)
     ps_result.each_line { |e|
-      if e =~ /^\d+\s+\d+\s+(\d+)\s+#{@pid}\s+.+\s+unicorn_rails worker/
+      if e =~ /^\d+\s+\d+\s+(\d+)\s+#{@pid}\s+.+\s+unicorn\w* worker/
         pids << $1.to_i
       end
     }
