@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
 #
-#= unicorn_railsの情報を収集するクラス
+#= unicornの情報を収集するクラス
 #
 #Authors:: typewriter
-#Version:: 0.52
+#Version:: 0.6
 #License:: MIT
 #
 #== 動作条件
 #
 #* /proc ファイルシステムが利用できる
-#* unicorn_rails によってRailsアプリケーションが動作している
+#* unicorn によってRackアプリケーションが動作している
 #* netstatが利用できる
 #
 #== Sample
@@ -38,7 +38,7 @@ class UnicornProcess
     @@rubies = {}
   end
 
-  # 動作しているunicorn_railsを検索し、UnicornProcessの配列を返します。
+  # 動作しているunicornを検索し、UnicornProcessの配列を返します。
   def self.processes
     unicorn_processes = []
 
@@ -53,12 +53,12 @@ class UnicornProcess
     unicorn_processes
   end
 
-  # このオブジェクトが情報を収集するunicorn_railsのプロセスIDを示します。
+  # このオブジェクトが情報を収集するunicornのプロセスIDを示します。
   def pid
     @pid
   end
 
-  # unicorn_railsが接続を受け付けるポートを示します。
+  # unicornが接続を受け付けるポートを示します。
   # 戻り値は配列です。配列の各要素は :port, :type キーを持ったハッシュです。:typeはソケットの種類("unix": Unixドメインソケット, "tcp": TCPソケット)、:portはポート番号(I-Node番号)を表します。
   # 権限等の問題で取得できない場合があります。
   def port
@@ -80,8 +80,8 @@ class UnicornProcess
     ports
   end
 
-  # unicorn_rails 起動時に --path で与えたパスを示します。
-  # RAILS_RELATIVE_URL_ROOTに設定されるものです。
+  # unicorn 起動時に --path で与えたパスを示します。
+  # RAILS_RELATIVE_URL_ROOTなどに設定されるものです。
   # 設定が読み取れない場合は / (デフォルト) です。
   def path
     cmdline = File.read("#{proc_path}/cmdline")
@@ -135,7 +135,7 @@ class UnicornProcess
     end
   end
 
-  # unicorn_rails 起動時に -c または --config-file で与えた設定ファイルへのパスを示します。
+  # unicorn 起動時に -c または --config-file で与えた設定ファイルへのパスを示します。
   # 指定されていない場合は nil です。
   # また、作業ディレクトリが取得できない場合は相対パスを示します。
   def config_path

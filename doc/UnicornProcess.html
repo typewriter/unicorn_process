@@ -43,6 +43,19 @@
 </nav>
 
 
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-unicorn%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%8E%E9%9B%86%E3%81%99%E3%82%8B%E3%82%AF%E3%83%A9%E3%82%B9">unicornの情報を収集するクラス</a>
+      <li><a href="#label-%E5%8B%95%E4%BD%9C%E6%9D%A1%E4%BB%B6">動作条件</a>
+      <li><a href="#label-Sample">Sample</a>
+    </ul>
+  </nav>
+</div>
+
+
   <div id="file-metadata">
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
@@ -64,31 +77,32 @@
 </nav>
 
     
+    
     <!-- Method Quickref -->
 <nav id="method-list-section" class="section">
   <h3 class="section-header">Methods</h3>
 
   <ul class="link-list">
     
-    <li><a href="#method-c-clear">::clear</a>
+    <li ><a href="#method-c-clear">::clear</a>
     
-    <li><a href="#method-c-new">::new</a>
+    <li ><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-c-processes">::processes</a>
+    <li ><a href="#method-c-processes">::processes</a>
     
-    <li><a href="#method-i-config_path">#config_path</a>
+    <li ><a href="#method-i-config_path">#config_path</a>
     
-    <li><a href="#method-i-path">#path</a>
+    <li ><a href="#method-i-path">#path</a>
     
-    <li><a href="#method-i-pid">#pid</a>
+    <li ><a href="#method-i-pid">#pid</a>
     
-    <li><a href="#method-i-port">#port</a>
+    <li ><a href="#method-i-port">#port</a>
     
-    <li><a href="#method-i-ruby_version">#ruby_version</a>
+    <li ><a href="#method-i-ruby_version">#ruby_version</a>
     
-    <li><a href="#method-i-worker">#worker</a>
+    <li ><a href="#method-i-worker">#worker</a>
     
-    <li><a href="#method-i-working_directory">#working_directory</a>
+    <li ><a href="#method-i-working_directory">#working_directory</a>
     
   </ul>
 </nav>
@@ -115,30 +129,30 @@
 
   <div id="description" class="description">
     
-<h1 id="label-unicorn_rails%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%8E%E9%9B%86%E3%81%99%E3%82%8B%E3%82%AF%E3%83%A9%E3%82%B9">unicorn_railsの情報を収集するクラス</h1>
+<h1 id="label-unicorn%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%8E%E9%9B%86%E3%81%99%E3%82%8B%E3%82%AF%E3%83%A9%E3%82%B9">unicornの情報を収集するクラス<span><a href="#label-unicorn%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%8E%E9%9B%86%E3%81%99%E3%82%8B%E3%82%AF%E3%83%A9%E3%82%B9">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
 <dl class="rdoc-list note-list"><dt>Authors
 <dd>
 <p>typewriter</p>
 </dd><dt>Version
 <dd>
-<p>0.52</p>
+<p>0.6</p>
 </dd><dt>License
 <dd>
 <p>MIT</p>
 </dd></dl>
 
-<h2 id="label-%E5%8B%95%E4%BD%9C%E6%9D%A1%E4%BB%B6">動作条件</h2>
+<h2 id="label-%E5%8B%95%E4%BD%9C%E6%9D%A1%E4%BB%B6">動作条件<span><a href="#label-%E5%8B%95%E4%BD%9C%E6%9D%A1%E4%BB%B6">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
 <ul><li>
 <p>/proc ファイルシステムが利用できる</p>
 </li><li>
-<p>unicorn_rails によってRailsアプリケーションが動作している</p>
+<p>unicorn によってRackアプリケーションが動作している</p>
 </li><li>
 <p>netstatが利用できる</p>
 </li></ul>
 
-<h2 id="label-Sample">Sample</h2>
+<h2 id="label-Sample">Sample<span><a href="#label-Sample">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
 
-<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'./unicorn_process.rb'</span>
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;./unicorn_process.rb&#39;</span>
 <span class="ruby-identifier">processes</span> = <span class="ruby-constant">UnicornProcess</span>.<span class="ruby-identifier">processes</span>
 <span class="ruby-identifier">processes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">process</span><span class="ruby-operator">|</span>
   <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;PID: #{process.pid}, ポート: #{process.port}, アプリディレクトリ: #{process.working_directory}&quot;</span>
@@ -185,7 +199,9 @@
         <div class="method-heading">
           <span class="method-name">clear</span><span
             class="method-args">()</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
@@ -193,12 +209,13 @@
           
           <p>キャッシュをクリアします。</p>
           
+          
 
           
           <div class="method-source-code" id="clear-source">
             <pre><span class="ruby-comment"># File unicorn_process.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clear</span>
-  <span class="ruby-identifier">@@netstat</span> = <span class="ruby-value">%xnetstat -anp`</span>
+  <span class="ruby-identifier">@@netstat</span> = <span class="ruby-value">%xnetstat -anp 2&gt;/dev/null`</span>
   <span class="ruby-identifier">@@psaxl</span> = <span class="ruby-value">%xps axl`</span>
   <span class="ruby-identifier">@@rubies</span> = {}
 <span class="ruby-keyword">end</span></pre>
@@ -217,13 +234,16 @@
         <div class="method-heading">
           <span class="method-name">new</span><span
             class="method-args">(pid)</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
         <div class="method-description">
           
           <p>指定したプロセスIDの情報を収集するオブジェクトを生成します。</p>
+          
           
 
           
@@ -247,13 +267,16 @@
         <div class="method-heading">
           <span class="method-name">processes</span><span
             class="method-args">()</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
         <div class="method-description">
           
-          <p>動作しているunicorn_railsを検索し、UnicornProcessの配列を返します。</p>
+          <p>動作しているunicornを検索し、UnicornProcessの配列を返します。</p>
+          
           
 
           
@@ -264,9 +287,9 @@
 
   <span class="ruby-identifier">ps_result</span> = <span class="ruby-value">%xps aux -ww`</span>
   <span class="ruby-identifier">ps_result</span>.<span class="ruby-identifier">each_line</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r^.+?\s+(\d+)\s+.+\s+unicorn_rails master/</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^.+?\s+(\d+)\s+.+\s+unicorn\w* master/</span>
       <span class="ruby-identifier">process_id</span> = <span class="ruby-node">$1</span>.<span class="ruby-identifier">to_i</span>
-      <span class="ruby-identifier">unicorn_processes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">UnicornProcess</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">process_id</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">%r\(old\)/</span>
+      <span class="ruby-identifier">unicorn_processes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">UnicornProcess</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">process_id</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/\(old\)/</span>
     <span class="ruby-keyword">end</span>
   }
 
@@ -293,14 +316,17 @@
         <div class="method-heading">
           <span class="method-name">config_path</span><span
             class="method-args">()</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
         <div class="method-description">
           
-          <p>unicorn_rails 起動時に -c または –config-file で与えた設定ファイルへのパスを示します。 指定されていない場合は nil
-です。 また、作業ディレクトリが取得できない場合は相対パスを示します。</p>
+          <p>unicorn 起動時に -c または –config-file で与えた設定ファイルへのパスを示します。 指定されていない場合は nil です。
+また、作業ディレクトリが取得できない場合は相対パスを示します。</p>
+          
           
 
           
@@ -308,7 +334,7 @@
             <pre><span class="ruby-comment"># File unicorn_process.rb, line 140</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">config_path</span>
   <span class="ruby-identifier">cmdline</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-node">&quot;#{proc_path}/cmdline&quot;</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cmdline</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r(?:\-c|\-\-config\-file)(?:\s+|=)([^ ]+)/</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cmdline</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(?:\-c|\-\-config\-file)(?:\s+|=)([^ ]+)/</span>
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">working_directory</span>
       <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-node">$1</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;Z*&quot;</span>).<span class="ruby-identifier">first</span>, <span class="ruby-identifier">working_directory</span>)
     <span class="ruby-keyword">else</span>
@@ -333,14 +359,17 @@
         <div class="method-heading">
           <span class="method-name">path</span><span
             class="method-args">()</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
         <div class="method-description">
           
-          <p>unicorn_rails 起動時に –path で与えたパスを示します。 RAILS_RELATIVE_URL_ROOTに設定されるものです。
+          <p>unicorn 起動時に –path で与えたパスを示します。 RAILS_RELATIVE_URL_ROOTなどに設定されるものです。
 設定が読み取れない場合は / (デフォルト) です。</p>
+          
           
 
           
@@ -348,7 +377,7 @@
             <pre><span class="ruby-comment"># File unicorn_process.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">path</span>
   <span class="ruby-identifier">cmdline</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-node">&quot;#{proc_path}/cmdline&quot;</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cmdline</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r\-\-path(?:\s+|=)([^ ]+)/</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cmdline</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\-\-path(?:\s+|=)([^ ]+)/</span>
     <span class="ruby-node">$1</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;Z*&quot;</span>).<span class="ruby-identifier">first</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-string">&quot;/&quot;</span>
@@ -369,13 +398,16 @@
         <div class="method-heading">
           <span class="method-name">pid</span><span
             class="method-args">()</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
         <div class="method-description">
           
-          <p>このオブジェクトが情報を収集するunicorn_railsのプロセスIDを示します。</p>
+          <p>このオブジェクトが情報を収集するunicornのプロセスIDを示します。</p>
+          
           
 
           
@@ -399,15 +431,18 @@
         <div class="method-heading">
           <span class="method-name">port</span><span
             class="method-args">()</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
         <div class="method-description">
           
-          <p>unicorn_railsが接続を受け付けるポートを示します。 戻り値は配列です。配列の各要素は :port, :type
+          <p>unicornが接続を受け付けるポートを示します。 戻り値は配列です。配列の各要素は :port, :type
 キーを持ったハッシュです。:typeはソケットの種類(“unix”: Unixドメインソケット, “tcp”:
 TCPソケット)、:portはポート番号(I-Node番号)を表します。 権限等の問題で取得できない場合があります。</p>
+          
           
 
           
@@ -417,14 +452,14 @@ TCPソケット)、:portはポート番号(I-Node番号)を表します。 権�
   <span class="ruby-comment"># まあ、コンフィグを解釈するとかめんどいわけで。</span>
   <span class="ruby-identifier">ports</span> = []
 
-  <span class="ruby-identifier">netstat_result</span> = (<span class="ruby-constant">CACHED_RESULT</span> <span class="ruby-operator">?</span> (<span class="ruby-keyword">defined?</span>(<span class="ruby-identifier">@@netstat</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">@@netstat</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">@@netstat</span> = <span class="ruby-value">%xnetstat -anp`</span>) <span class="ruby-operator">:</span> <span class="ruby-value">%xnetstat -anp`</span>)
+  <span class="ruby-identifier">netstat_result</span> = (<span class="ruby-constant">CACHED_RESULT</span> <span class="ruby-operator">?</span> (<span class="ruby-keyword">defined?</span>(<span class="ruby-identifier">@@netstat</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">@@netstat</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">@@netstat</span> = <span class="ruby-value">%xnetstat -anp 2&gt;/dev/null`</span>) <span class="ruby-operator">:</span> <span class="ruby-value">%xnetstat -anp 2&gt;/dev/null`</span>)
   <span class="ruby-identifier">childs</span> = <span class="ruby-identifier">child_pids</span>
   <span class="ruby-identifier">netstat_result</span>.<span class="ruby-identifier">each_line</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-node">%r\s+#{@pid}\//</span> <span class="ruby-operator">||</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">childs</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-node">%r\s+(?:#{childs.join('|')})\//</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/\s+#{@pid}\//</span> <span class="ruby-operator">||</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">childs</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/\s+(?:#{childs.join(&#39;|&#39;)})\//</span>)
       <span class="ruby-comment"># unix domain</span>
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%rLISTENING\s+(\d+)\s+/</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/LISTENING\s+(\d+)\s+/</span>
         <span class="ruby-identifier">ports</span> <span class="ruby-operator">&lt;&lt;</span> { <span class="ruby-value">:port</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">$1</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;unix&quot;</span> }
-      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r[^:]\:(\d+)\s+.+?\s+LISTEN/</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[^:]\:(\d+)\s+.+?\s+LISTEN/</span>
         <span class="ruby-identifier">ports</span> <span class="ruby-operator">&lt;&lt;</span> { <span class="ruby-value">:port</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">$1</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;tcp&quot;</span> }
       <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span>
@@ -446,7 +481,9 @@ TCPソケット)、:portはポート番号(I-Node番号)を表します。 権�
         <div class="method-heading">
           <span class="method-name">ruby_version</span><span
             class="method-args">()</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
@@ -454,6 +491,7 @@ TCPソケット)、:portはポート番号(I-Node番号)を表します。 権�
           
           <p>動作している ruby インタプリタのバージョンを示します。 (rvmなどを利用している場合向けのメソッドです) 権限等の問題で取得できない場合は
 nil です。</p>
+          
           
 
           
@@ -488,13 +526,16 @@ nil です。</p>
         <div class="method-heading">
           <span class="method-name">worker</span><span
             class="method-args">()</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
         <div class="method-description">
           
           <p>現在の worker の数を示します。</p>
+          
           
 
           
@@ -505,7 +546,7 @@ nil です。</p>
 
   <span class="ruby-identifier">ps_result</span> = (<span class="ruby-constant">CACHED_RESULT</span> <span class="ruby-operator">?</span> (<span class="ruby-keyword">defined?</span>(<span class="ruby-identifier">@@psaxl</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">@@psaxl</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">@@psaxl</span> = <span class="ruby-value">%xps axl -ww`</span>) <span class="ruby-operator">:</span> <span class="ruby-value">%xps axl -ww`</span>)
   <span class="ruby-identifier">ps_result</span>.<span class="ruby-identifier">each_line</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-node">%r^\d+\s+\d+\s+\d+\s+#{@pid}\s+.+\s+unicorn_rails worker/</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/^\d+\s+\d+\s+\d+\s+#{@pid}\s+.+\s+unicorn\w* worker/</span>
       <span class="ruby-identifier">workers</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
     <span class="ruby-keyword">end</span>
   }
@@ -527,13 +568,16 @@ nil です。</p>
         <div class="method-heading">
           <span class="method-name">working_directory</span><span
             class="method-args">()</span>
+          
           <span class="method-click-advice">click to toggle source</span>
+          
         </div>
         
 
         <div class="method-description">
           
           <p>作業ディレクトリを示します。 通常、アプリケーションのディレクトリを指します。 権限等の問題で取得できない場合は nil です。</p>
+          
           
 
           
@@ -565,7 +609,7 @@ nil です。</p>
 
 <footer id="validator-badges">
   <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
-  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
   <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
 </footer>
 
